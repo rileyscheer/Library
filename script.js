@@ -25,8 +25,10 @@ function clearInputs() {
     document.querySelector('.title').value = '';
     document.querySelector('.author').value = '';
     document.querySelector('.pages').value = '';
-    radio = document.querySelector('.yesno');
-    radio.checked = false;
+    const yes = document.querySelector('#yes');
+    const no = document.querySelector('#no');
+    yes.checked = false;
+    no.checked = false;
 }
 
 
@@ -43,12 +45,11 @@ function displayBooks() {
     newCard.style.display = 'flex';
     newCard.style.justifyContent = 'center';
     newCard.style.alignItems = 'center';
-    newCard.style.flexDirection = 'column';
+    newCard.style.flexDirection = 'column'; 
     newCard.style.fontSize = '24px';
     newCard.style.letterSpacing = '1px';
     newCard.style.boxShadow = '0px 0px 20px';
     newCard.style.fontWeight = '500';
-
 
     // Adding text to card
     const titleContent = document.createTextNode(`Title: ${library[j].title}`)
@@ -81,46 +82,11 @@ function displayBooks() {
     newButton.style.border = 'solid black 2px';
     newButton.style.fontWeight = '500';
     newButton.style.color = 'black';
-
-    radio = document.querySelector('.yesno:checked').value;
-    if (radio === 'Yes'){
-        newButton.style.background = '#47D65A';
-        newButton.textContent = 'Read';
-        newButton.onmouseover = function() {
-            newButton.style.background = 'rgb(68, 0, 0)';
-            newButton.style.color = 'white';
-        }
-        newButton.onmouseout = function() {
-            newButton.style.background = '#47D65A';
-            newButton.style.color = 'black';
-        }
-        newButton.addEventListener('click', function() {
-            newButton.style.background = 'rgb(68, 0, 0)'
-            newButton.style.color = 'white';
-        })
-        clearInputs()
-    }   else if(radio === 'No') {
-        newButton.style.background = 'rgb(68, 0, 0)';
-        newButton.style.color = 'white';
-        newButton.textContent = 'Unread';
-        newButton.onmouseover = function() {
-            newButton.style.background = '#47D65A';
-            newButton.style.color = 'black';
-        }
-        newButton.onmouseout = function() {
-            newButton.style.background = 'rgb(68, 0, 0)';
-            newButton.style.color = 'white';
-        }
-        newButton.addEventListener('click', function() {
-            newButton.style.background = '#47D65A';
-            newButton.style.color = 'black';
-        })
-        clearInputs()
-    }
+    btn(newButton)
+    
     newCard.appendChild(newButton)
     const line7 = document.createElement('br')
     newCard.appendChild(line7)
-
 
     // Creating delete button
     const deleteBtn = document.createElement('button')
@@ -139,13 +105,56 @@ function displayBooks() {
         newCard.remove()
     })
 
+    newButton.addEventListener('click', function(){
+        if (newButton.textContent === 'Read'){
+            newButton.style.background = '#900000';
+            newButton.style.color = 'white';
+            newButton.textContent = 'Unread';
+        } else if (newButton.textContent === 'Unread') {
+            newButton.style.background = '#47D65A';
+            newButton.style.color = 'black';
+            newButton.textContent = 'Read';
+        }
+    })
+
     j += 1;  //Used to iterate through library
 
     for (i in library) {
         makeCard.appendChild(newCard)
+        radioBtn = '';
         clearInputs()
     }
 }
 
 
+function btn(newButton) {
+    radioBtn = document.querySelector('.yesno:checked').value;
+    if (radioBtn === 'Yes'){
+        newButton.style.background = '#47D65A';
+        newButton.textContent = 'Read';
 
+        newButton.onmouseover = function() {
+            newButton.style.background = '#900000';
+            newButton.style.color = 'white';
+        }
+
+        newButton.onmouseout = function() {
+            newButton.style.background = '#47D65A';
+            newButton.style.color = 'black';
+        }
+    }   else if(radioBtn === 'No') {
+        newButton.style.background = '#900000';
+        newButton.style.color = 'white';
+        newButton.textContent = 'Unread';
+
+        newButton.onmouseover = function() {
+            newButton.style.background = '#47D65A';
+            newButton.style.color = 'black';
+        }
+
+        newButton.onmouseout = function() {
+            newButton.style.background = '#900000';
+            newButton.style.color = 'white';
+        }
+    }
+}
