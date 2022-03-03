@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library</title>
+    <link href="styles.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <section>
+        <h1>My Library</h1>
+        <div class="inputs">
+            <div class="title-text">Title</div>
+            <input type="text" class="title">
+            <div class="author-text">Author</div>
+            <input type="text" class="author">
+            <div class="pages-text">Pages</div>
+            <input type="number" class="pages">
+        </div>
+        <div class="ask">Have you read this?</div>
+        <form action="#" class="radios">
+            <input  name="action" type="radio" id="yes" class="yesno" value="yes">
+            <label for="yes">Yes</label>
+            <input name="action" type="radio" id="no" class="yesno" value="no">
+            <label for="no">No</label>
+        </form>
+        <button class="add" onclick="getValue()">Add to Library</button>
+        <div class="cards"></div>
+    </section>
+    <script src="script.js"></script>
+</body>
+</html>
