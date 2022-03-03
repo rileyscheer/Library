@@ -14,12 +14,13 @@ section {
 
 h1 {
     font-size: 40px;
-    background-color: aliceblue;
+    background-color: rgb(68, 0, 0);
     width: 100vw;
     height: 5vh;
     padding-top: 20px;
     text-align: center;
     letter-spacing: 2px;
+    color: white;
 }
 
 .inputs {
@@ -39,7 +40,7 @@ h1 {
 .add {
     width: 200px;
     height: 50px;
-    background-color: rgb(83, 70, 255);
+    background-color: rgb(68, 0, 0);
     border-radius: 20px;
     border: 2px solid black;
     margin: 20px;
@@ -51,12 +52,10 @@ h1 {
     background-color: green;
 }
 
-.newCards {
-    background-color: white;
-    height: 300px;
-    width: 300px;
-    text-align: center;
-    border-radius: 25px;
+.cards {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 .ask {
@@ -69,5 +68,5 @@ h1 {
 }
 
 .radios input {
-    margin: 7px 10px;
+    margin: 7px 15px;
 }
