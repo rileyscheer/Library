@@ -35,21 +35,9 @@ function clearInputs() {
 add.addEventListener('click', addBookToLibrary)
 
 function displayBooks() {
-    // Creating and styling cards
+    // Creating cards
     const newCard = document.createElement('div')
-    newCard.style.background = 'white';
-    newCard.style.height = '310px';
-    newCard.style.width = '400px'
-    newCard.style.borderRadius = '25px';
-    newCard.style.margin = '30px';
-    newCard.style.display = 'flex';
-    newCard.style.justifyContent = 'center';
-    newCard.style.alignItems = 'center';
-    newCard.style.flexDirection = 'column'; 
-    newCard.style.fontSize = '24px';
-    newCard.style.letterSpacing = '1px';
-    newCard.style.boxShadow = '0px 0px 20px';
-    newCard.style.fontWeight = '500';
+    newCard.classList.add('newCard')
 
     // Adding text to card
     const titleContent = document.createTextNode(`Title: ${library[j].title}`)
@@ -76,12 +64,7 @@ function displayBooks() {
 
     // Creating read or unread button
     const newButton = document.createElement('button')
-    newButton.style.width = '200px';
-    newButton.style.height = '50px';
-    newButton.style.borderRadius = '25px';
-    newButton.style.border = 'solid black 2px';
-    newButton.style.fontWeight = '500';
-    newButton.style.color = 'black';
+    newButton.classList.add('newButton')
     btn(newButton)
     
     newCard.appendChild(newButton)
@@ -90,15 +73,8 @@ function displayBooks() {
 
     // Creating delete button
     const deleteBtn = document.createElement('button')
-    deleteBtn.style.width = '90px';
-    deleteBtn.style.height = '35px';
-    deleteBtn.style.background = 'black';
-    deleteBtn.style.color = 'white';
+    deleteBtn.classList.add('delete')
     deleteBtn.textContent = 'Delete';
-    deleteBtn.style.borderRadius = '15px';
-    deleteBtn.style.border = 'solid 1px black';
-    deleteBtn.style.fontSize = '16px';
-
     newCard.appendChild(deleteBtn);
 
     deleteBtn.addEventListener('click', function(){
