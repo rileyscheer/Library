@@ -4,12 +4,14 @@ const makeCard = document.querySelector('.cards');
 let library = [];
 let j = 0;
 
+
 function Book(title, author, pages, read) {
     this.title = title;
     this.author = author;
     this.pages = pages;
     this.read = read;
 }
+
 
 function addBookToLibrary() {
     const newTitle = document.querySelector('.title').value;
@@ -20,6 +22,8 @@ function addBookToLibrary() {
     library.push(addBook)
     displayBooks()
 }
+
+
 
 function clearInputs() {
     document.querySelector('.title').value = '';
@@ -64,7 +68,6 @@ function displayBooks() {
 
     // Creating read or unread button
     const newButton = document.createElement('button')
-    newButton.classList.add('newButton')
     btn(newButton)
     
     newCard.appendChild(newButton)
@@ -81,13 +84,14 @@ function displayBooks() {
         newCard.remove()
     })
 
+    
     newButton.addEventListener('click', function(){
         if (newButton.textContent === 'Read'){
-            newButton.style.background = '#900000';
+            newButton.style.backgroundColor = '#900000';
             newButton.style.color = 'white';
             newButton.textContent = 'Unread';
         } else if (newButton.textContent === 'Unread') {
-            newButton.style.background = '#47D65A';
+            newButton.style.backgroundColor = '#47D65A';
             newButton.style.color = 'black';
             newButton.textContent = 'Read';
         }
@@ -103,34 +107,14 @@ function displayBooks() {
 }
 
 
+
 function btn(newButton) {
     radioBtn = document.querySelector('.yesno:checked').value;
     if (radioBtn === 'Yes'){
-        newButton.style.background = '#47D65A';
+        newButton.classList.add('read')
         newButton.textContent = 'Read';
-
-        newButton.onmouseover = function() {
-            newButton.style.background = '#900000';
-            newButton.style.color = 'white';
-        }
-
-        newButton.onmouseout = function() {
-            newButton.style.background = '#47D65A';
-            newButton.style.color = 'black';
-        }
     }   else if(radioBtn === 'No') {
-        newButton.style.background = '#900000';
-        newButton.style.color = 'white';
+        newButton.classList.add('unread')
         newButton.textContent = 'Unread';
-
-        newButton.onmouseover = function() {
-            newButton.style.background = '#47D65A';
-            newButton.style.color = 'black';
-        }
-
-        newButton.onmouseout = function() {
-            newButton.style.background = '#900000';
-            newButton.style.color = 'white';
-        }
     }
 }

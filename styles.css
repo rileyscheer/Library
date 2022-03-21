@@ -88,14 +88,38 @@ h1 {
     font-weight: 500;
 }
 
-.newButton {
+.read {
     width: 200px;
     height: 50px;
     border-radius: 25px;
     border: 2px solid black;
     font-weight: 500;
-    color: black;
+    background-color: #47D65A;
 }
+
+.read:hover {
+    transition: ease-in-out 100ms;
+    background-color: #900000;
+    color: white;
+}
+
+.unread {
+    width: 200px;
+    height: 50px;
+    border-radius: 25px;
+    border: 2px solid black;
+    font-weight: 500;
+    background-color: #900000;
+    color: white;
+}
+
+.unread:hover {
+    transition: ease-in-out 100ms;
+    background-color: #47D65A;
+    color: rgb(0, 0, 0);
+}
+
+
 
 .delete {
     width: 90px;
@@ -110,3 +134,4 @@ h1 {
 .delete:hover {
     background-color: #900000;
 }
+
