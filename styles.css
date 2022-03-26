@@ -17,7 +17,7 @@ h1 {
     background-color: rgb(39, 39, 39);
     width: 100vw;
     height: 5vh;
-    padding-top: 20px;
+    padding: .5em;
     text-align: center;
     letter-spacing: 3px;
     color: white;
